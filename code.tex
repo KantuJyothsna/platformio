@@ -1,0 +1,26 @@
+#include <LiquidCrystal.h>
+
+// Define LCD pins
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  // Set up the LCD columns and rows
+  lcd.begin(16, 2);
+
+  // Calculate maximum propagation delay
+  int xor_delay = 4; // ns
+  int and_delay = 2; // ns
+  int mux_delay = 1; // ns
+
+  int max_delay = xor_delay + and_delay + mux_delay;
+
+  // Print the result on the LCD
+  lcd.print("Max Prop Delay:");
+  lcd.setCursor(0, 1);
+  lcd.print(max_delay);
+  lcd.print(" ns");
+}
+
+void loop() {
+  // Nothing to do here for a static display
+}
